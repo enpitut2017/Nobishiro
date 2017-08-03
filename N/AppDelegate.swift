@@ -60,7 +60,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         
         //トリガーを設定
         
-        let date = DateComponents(hour:14, minute:33)
+        let intHour: Int = Int(Hour)!
+        let intMinute: Int = Int(Minute)!
+        
+        let date = DateComponents(hour:intHour, minute:intMinute)
         let trigger = UNCalendarNotificationTrigger.init(dateMatching: date, repeats: false)
         
         
