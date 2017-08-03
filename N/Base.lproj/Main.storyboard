@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="3BN-Eq-HEU">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -55,6 +55,46 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="136.80000000000001" y="137.18140929535232"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="Wyj-Xc-zMy">
+            <objects>
+                <viewController id="3BN-Eq-HEU" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="86v-we-4Hs"/>
+                        <viewControllerLayoutGuide type="bottom" id="FXd-rn-Su6"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="n3P-VQ-yos">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QIC-Nh-DHW">
+                                <rect key="frame" x="146" y="465.5" width="82" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="時間設定"/>
+                                <connections>
+                                    <segue destination="BYZ-38-t0r" kind="presentation" id="usi-bQ-jx5"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="寝ろアプリ" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LWI-24-l8U">
+                                <rect key="frame" x="129" y="220" width="116.5" height="27.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="LWI-24-l8U" firstAttribute="centerX" secondItem="n3P-VQ-yos" secondAttribute="centerX" id="BnU-MV-i3j"/>
+                            <constraint firstItem="QIC-Nh-DHW" firstAttribute="centerY" secondItem="n3P-VQ-yos" secondAttribute="centerY" constant="150" id="HmC-GJ-Mco"/>
+                            <constraint firstItem="LWI-24-l8U" firstAttribute="centerY" secondItem="n3P-VQ-yos" secondAttribute="centerY" constant="-100" id="egx-fA-3LX"/>
+                            <constraint firstItem="QIC-Nh-DHW" firstAttribute="centerX" secondItem="n3P-VQ-yos" secondAttribute="centerX" id="mmB-qJ-lHN"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FXR-bg-mJU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="986" y="137"/>
         </scene>
     </scenes>
 </document>
