@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="3BN-Eq-HEU">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="3BN-Eq-HEU">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -78,7 +78,7 @@
                                 </connections>
                             </pickerView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DQ1-he-oc2">
-                                <rect key="frame" x="166" y="433" width="42" height="21"/>
+                                <rect key="frame" x="187" y="433" width="0.0" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="K9l-nv-ucL"/>
                                 </constraints>
@@ -86,14 +86,24 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="時間を設定して、アプリを閉じてください" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J3p-tS-TK4">
+                                <rect key="frame" x="22.5" y="323.5" width="329.5" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="J3p-tS-TK4" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="2bz-zI-EKW"/>
                             <constraint firstItem="DQ1-he-oc2" firstAttribute="centerX" secondItem="JJg-kz-H1U" secondAttribute="centerX" id="7gg-Rw-seo"/>
                             <constraint firstItem="JJg-kz-H1U" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="IE8-np-yQk"/>
+                            <constraint firstItem="J3p-tS-TK4" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="LOc-5O-F7X"/>
                             <constraint firstItem="JJg-kz-H1U" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="XRS-Ka-9xr"/>
+                            <constraint firstItem="J3p-tS-TK4" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="aMB-Xd-nZZ"/>
                             <constraint firstItem="JJg-kz-H1U" firstAttribute="top" secondItem="DQ1-he-oc2" secondAttribute="bottom" constant="8" symbolic="YES" id="h70-15-zCn"/>
                             <constraint firstAttribute="trailing" secondItem="JJg-kz-H1U" secondAttribute="trailing" id="qNF-Gd-DBd"/>
+                            <constraint firstItem="J3p-tS-TK4" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="yak-Ue-TJG"/>
                         </constraints>
                     </view>
                     <connections>
