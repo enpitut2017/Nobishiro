@@ -4,4 +4,12 @@
 これは、スマホ等の使いすぎによる夜更かしを防ぎ、指定した時間に寝ることを促すことができ、既存のアラームアプリとは違って寝る時間を早めることで、朝より起きやすくする機能が備わっています。
 ## メンバー
 碓氷　https://github.com/ShunyaUsui
+
+
 大室　https://github.com/nikamuro
+
+
+大倉  https://github.com/rui777
+
+
+山口　https://github.com/MAST-Hiroki-Yamaguchi

@@ -44,12 +44,13 @@ class ViewController: UIViewController,UIPickerViewDelegate,UIPickerViewDataSour
         let strMinute:AppDelegate = UIApplication.shared.delegate as! AppDelegate
         
         
+        
         let data1 = self.pickerView(pickerView, titleForRow: pickerView.selectedRow(inComponent: 0), forComponent: 0)
         let data2 = self.pickerView(pickerView, titleForRow: pickerView.selectedRow(inComponent: 1), forComponent: 1)
+        //let data3 = self.pickerView(pickerView, titleForRow: pickerView.selectedRow(inComponent: 2), //forComponent: 2)
         
         strHour.Hour = data1!
         strMinute.Minute = data2!
-        
         
         self.myLabel.text = "\(data1!) :\(data2!)"
 
