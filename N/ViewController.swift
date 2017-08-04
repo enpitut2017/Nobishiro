@@ -12,7 +12,10 @@ class ViewController: UIViewController,UIPickerViewDelegate,UIPickerViewDataSour
     
     @IBOutlet weak var myLabel: UILabel!
     
-    let dataList = [[Int](0...23), [Int](00...59)]
+    
+    let dataList = [["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23"],
+                   ["00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13","14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37", "38", "39", "40", "41", "42", "43", "44", "45", "46", "47", "48", "49", "50", "51", "52", "53", "54", "55", "56", "57", "58", "59"]]
+
     
     //コンポーネントの個数を返すメソッド
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -28,7 +31,7 @@ class ViewController: UIViewController,UIPickerViewDelegate,UIPickerViewDataSour
     
     //データを返すメソッド
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return String(dataList[component][row])
+        return dataList[component][row]
     }
     
     
@@ -48,23 +51,26 @@ class ViewController: UIViewController,UIPickerViewDelegate,UIPickerViewDataSour
         strMinute.Minute = data2!
         
         
-      /// if data2!.characters.count = 1 {
-          //  self.myLabel.text = "\(data1!) :0\(data2!)"
-       // } else {
-            self.myLabel.text = "\(data1!) :\(data2!)"
-        //}
+        self.myLabel.text = "\(data1!) :\(data2!)"
+
     }
     
-
+    var timer:Timer = Timer()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        let label = UILabel()
-        label.text = "時間を設定して、アプリを閉じてください"
-        label.sizeToFit()
-        label.center = self.view.center
-        self.view.addSubview(label)
+        timer = Timer.scheduledTimer(timeInterval: 5,
+            target: self,                   //
+            selector: #selector(ViewController.changeView),
+            userInfo: nil,                  //
+            repeats: false)                 //追加
+        // Do any additional setup after loading the view, typically from a nib.
     }
+    
+    func changeView() {
+        self.performSegue(withIdentifier: "toSleep",sender: nil)
+    }
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="3BN-Eq-HEU">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="3BN-Eq-HEU">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -9,6 +9,52 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Go To Sleep Controller-->
+        <scene sceneID="qU4-Z2-cTY">
+            <objects>
+                <viewController id="6bZ-44-zg0" customClass="GoToSleepController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="HX8-bx-6n6"/>
+                        <viewControllerLayoutGuide type="bottom" id="Sjq-d2-q8u"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="y4d-Zw-Mya">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GId-fo-HC4">
+                                <rect key="frame" x="164" y="354" width="46" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="46" id="EGD-Dk-rvY"/>
+                                </constraints>
+                                <state key="normal" title="終了"/>
+                                <connections>
+                                    <segue destination="3BN-Eq-HEU" kind="presentation" id="R8V-Gy-7Rw"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="眠りにつけ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hCn-h9-fco">
+                                <rect key="frame" x="141" y="283" width="92" height="101"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="92" id="Gyw-XU-y2G"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="hCn-h9-fco" firstAttribute="centerX" secondItem="GId-fo-HC4" secondAttribute="centerX" id="5e3-4H-fmN"/>
+                            <constraint firstItem="hCn-h9-fco" firstAttribute="centerY" secondItem="y4d-Zw-Mya" secondAttribute="centerY" id="Epa-Af-RHp"/>
+                            <constraint firstItem="hCn-h9-fco" firstAttribute="top" secondItem="HX8-bx-6n6" secondAttribute="bottom" constant="263" id="SzY-wE-zJb"/>
+                            <constraint firstItem="hCn-h9-fco" firstAttribute="centerX" secondItem="y4d-Zw-Mya" secondAttribute="centerX" id="aha-dX-IYs"/>
+                            <constraint firstItem="hCn-h9-fco" firstAttribute="bottom" secondItem="GId-fo-HC4" secondAttribute="bottom" id="dYe-Kl-Xnp"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DnU-6m-g9c" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-759.20000000000005" y="111.99400299850076"/>
+        </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -23,6 +69,9 @@
                         <subviews>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JJg-kz-H1U">
                                 <rect key="frame" x="0.0" y="462" width="375" height="205"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="205" id="Okz-6R-EBc"/>
+                                </constraints>
                                 <connections>
                                     <outlet property="dataSource" destination="BYZ-38-t0r" id="sDj-58-cCD"/>
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="WbL-gP-nDB"/>
@@ -31,7 +80,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DQ1-he-oc2">
                                 <rect key="frame" x="187" y="433" width="0.0" height="21"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="b1v-9I-9Y2"/>
+                                    <constraint firstAttribute="height" constant="21" id="K9l-nv-ucL"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -40,21 +89,21 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="JJg-kz-H1U" secondAttribute="trailing" id="Mi1-tP-VEA"/>
-                            <constraint firstItem="JJg-kz-H1U" firstAttribute="top" secondItem="DQ1-he-oc2" secondAttribute="bottom" constant="8" symbolic="YES" id="NYj-qg-SZh"/>
-                            <constraint firstItem="DQ1-he-oc2" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="413" id="Zqb-sT-hdu"/>
-                            <constraint firstItem="DQ1-he-oc2" firstAttribute="centerX" secondItem="JJg-kz-H1U" secondAttribute="centerX" id="gfZ-36-qEU"/>
-                            <constraint firstItem="JJg-kz-H1U" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="lsQ-IX-GJP"/>
-                            <constraint firstItem="JJg-kz-H1U" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="mXE-Iz-pVj"/>
+                            <constraint firstItem="DQ1-he-oc2" firstAttribute="centerX" secondItem="JJg-kz-H1U" secondAttribute="centerX" id="7gg-Rw-seo"/>
+                            <constraint firstItem="JJg-kz-H1U" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="IE8-np-yQk"/>
+                            <constraint firstItem="JJg-kz-H1U" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="XRS-Ka-9xr"/>
+                            <constraint firstItem="JJg-kz-H1U" firstAttribute="top" secondItem="DQ1-he-oc2" secondAttribute="bottom" constant="8" symbolic="YES" id="h70-15-zCn"/>
+                            <constraint firstAttribute="trailing" secondItem="JJg-kz-H1U" secondAttribute="trailing" id="qNF-Gd-DBd"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="myLabel" destination="DQ1-he-oc2" id="NJG-sr-oLA"/>
+                        <segue destination="6bZ-44-zg0" kind="presentation" identifier="toSleep" id="GxL-9b-6Fx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="136.80000000000001" y="137.18140929535232"/>
+            <point key="canvasLocation" x="-82.400000000000006" y="135.38230884557723"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="Wyj-Xc-zMy">
