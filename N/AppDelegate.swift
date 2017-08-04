@@ -15,6 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     
     var Hour: String = ""
     var Minute: String = ""
+  
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
@@ -63,8 +64,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         let intHour: Int = Int(Hour)!
         let intMinute: Int = Int(Minute)!
         
-        let date = DateComponents(hour:intHour, minute:intMinute)
-        let trigger = UNCalendarNotificationTrigger.init(dateMatching: date, repeats: false)
+        let time = DateComponents(hour:intHour, minute:intMinute)
+        let trigger = UNCalendarNotificationTrigger.init(dateMatching: time, repeats: false)
+        
         
         
          //表示の設定
