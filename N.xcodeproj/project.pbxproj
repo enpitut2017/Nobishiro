@@ -96,7 +96,7 @@
 				TargetAttributes = {
 					25A2D2D71F3162BE00E70067 = {
 						CreatedOnToolsVersion = 8.3.3;
-						DevelopmentTeam = 3TLNPXKR9V;
+						DevelopmentTeam = D6TSX77723;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -264,10 +264,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 3TLNPXKR9V;
+				DEVELOPMENT_TEAM = D6TSX77723;
 				INFOPLIST_FILE = N/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = shunya.usui.N;
+				PRODUCT_BUNDLE_IDENTIFIER = com.pmdm9n4bMyjanken;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -277,10 +278,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 3TLNPXKR9V;
+				DEVELOPMENT_TEAM = D6TSX77723;
 				INFOPLIST_FILE = N/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = shunya.usui.N;
+				PRODUCT_BUNDLE_IDENTIFIER = com.pmdm9n4bMyjanken;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
