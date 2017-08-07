@@ -69,7 +69,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         
         let intHour: Int = Int(Hour)!
         let intMinute: Int = Int(Minute)!
-        let intSecond: Int = 5
+        let intSecond: Int = 3
         
         let intNotificationHour: Int = Int(NotificationHour)!
         
@@ -98,7 +98,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
             center.add(request)
             
             // 繰り返しの通知
-            for idx in 1...5 {
+            for idx in 1...10 {
                 time = DateComponents(hour:intHour, minute:intMinute, second:intSecond*idx)
                 trigger = UNCalendarNotificationTrigger.init(dateMatching: time, repeats: false)
                 request = UNNotificationRequest.init(identifier: id + String(idx), content: content, trigger: trigger)
@@ -122,13 +122,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         //設定をさせる方
         let idX: String = "CalenderNotificationX"
         
-        
         if hourChecker {
-        let timeX = DateComponents(hour:intNotificationHour, minute:10)
-        let triggerX = UNCalendarNotificationTrigger.init(dateMatching: timeX, repeats: false)
+            let timeX = DateComponents(hour:intNotificationHour, minute:0)
+            let triggerX = UNCalendarNotificationTrigger.init(dateMatching: timeX, repeats: true)
         
-        let requestX = UNNotificationRequest.init(identifier: idX, content: contentX, trigger: triggerX)
-        centerX.add(requestX)
+            let requestX = UNNotificationRequest.init(identifier: idX, content: contentX, trigger: triggerX)
+            centerX.add(requestX)
         } else {
             centerX.removeAllPendingNotificationRequests()
         }

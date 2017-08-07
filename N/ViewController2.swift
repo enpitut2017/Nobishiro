@@ -10,8 +10,9 @@ import UIKit
 
 class ViewController2: UIViewController,UIPickerViewDelegate,UIPickerViewDataSource {
     
-    @IBOutlet weak var setTime: UILabel!
     
+    @IBOutlet weak var setTime: UILabel!
+    @IBOutlet weak var setsumeiText: UILabel!
     @IBOutlet weak var hourLabel: UILabel!
     
     
@@ -20,10 +21,10 @@ class ViewController2: UIViewController,UIPickerViewDelegate,UIPickerViewDataSou
         let appDelgate:AppDelegate = UIApplication.shared.delegate as! AppDelegate
         if ( sender.isOn ) {
             appDelgate.hourChecker = true
-            hourLabel.text = "ON"
+            hourLabel.text = "設定しました"
         } else {
             appDelgate.hourChecker = false
-            hourLabel.text = "OFF"
+            hourLabel.text = "設定します"
         }
     }
     
@@ -54,16 +55,18 @@ class ViewController2: UIViewController,UIPickerViewDelegate,UIPickerViewDataSou
         let data = self.pickerView(pickerView, titleForRow: pickerView.selectedRow(inComponent: 0), forComponent: 0)
         strNotificationHour.NotificationHour = data!
         
-        self.setTime.text = "\(data!) :00"
+        self.setTime.text = "毎日 \(data!) :00 にリマインドします"
         
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setsumeiText.numberOfLines = 2;
+        setsumeiText.text = "寝る時間を設定し忘れていることを\nリマインドする機能です"
         
-        hourLabel.text = "OFF"
+        hourLabel.text = "設定します"
         hourSwitch.isOn = false
-        setTime.text = "0 :00"
+        setTime.text = "毎日 0 :00 にリマインドします"
         
         let strNotificationHour:AppDelegate = UIApplication.shared.delegate as! AppDelegate
         strNotificationHour.NotificationHour = "0"

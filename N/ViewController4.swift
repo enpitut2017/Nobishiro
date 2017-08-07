@@ -29,8 +29,7 @@ class ViewController4: UIViewController {
     
     @IBAction func screendark(_ sender: UIButton) {
         UIScreen.main.brightness = CGFloat(0.0)
-        let appDelegate:AppDelegate = UIApplication.shared.delegate as!
-            AppDelegate
+        let appDelegate:AppDelegate = UIApplication.shared.delegate as! AppDelegate
         appDelegate.buttonChecker = false
     }
     
