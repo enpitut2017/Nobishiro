@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="3BN-Eq-HEU">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="3BN-Eq-HEU">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -191,7 +191,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DNo-Ol-aeq">
-                                <rect key="frame" x="164.5" y="398.5" width="46" height="30"/>
+                                <rect key="frame" x="165" y="399" width="46" height="30"/>
                                 <state key="normal" title="再設定"/>
                                 <connections>
                                     <segue destination="BYZ-38-t0r" kind="presentation" id="rxA-Ax-jsq"/>
@@ -282,26 +282,48 @@
                                     <segue destination="3BN-Eq-HEU" kind="presentation" id="hl0-VT-yfg"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yaN-2H-ZgC">
-                                <rect key="frame" x="166" y="120" width="51" height="21"/>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lG7-02-oa2">
+                                <rect key="frame" x="0.0" y="225" width="375" height="216"/>
+                            </pickerView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JrK-5b-8B3">
+                                <rect key="frame" x="219" y="102" width="42" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lG7-02-oa2">
-                                <rect key="frame" x="0.0" y="225" width="375" height="216"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                            </pickerView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yaN-2H-ZgC">
+                                <rect key="frame" x="162" y="196" width="51" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="51" id="xy1-pv-Szg"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kIc-rd-232">
+                                <rect key="frame" x="154" y="97" width="51" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="hourSwitchAction:" destination="Foz-KV-wf1" eventType="valueChanged" id="u2P-CS-3pO"/>
+                                </connections>
+                            </switch>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="t8B-Ox-VKW" firstAttribute="centerX" secondItem="9w4-Ij-dee" secondAttribute="centerX" id="Zkf-pF-VEG"/>
-                            <constraint firstItem="7KQ-t2-axR" firstAttribute="top" secondItem="t8B-Ox-VKW" secondAttribute="bottom" constant="147" id="nkc-hn-Pku"/>
+                            <constraint firstItem="yaN-2H-ZgC" firstAttribute="centerX" secondItem="lG7-02-oa2" secondAttribute="centerX" id="08h-j7-03Q"/>
+                            <constraint firstItem="t8B-Ox-VKW" firstAttribute="top" secondItem="lG7-02-oa2" secondAttribute="bottom" constant="49" id="7nd-N9-xCl"/>
+                            <constraint firstItem="lG7-02-oa2" firstAttribute="top" secondItem="yaN-2H-ZgC" secondAttribute="bottom" constant="8" symbolic="YES" id="8DT-9f-epu"/>
+                            <constraint firstAttribute="trailing" secondItem="lG7-02-oa2" secondAttribute="trailing" id="Cgf-AZ-qXl"/>
+                            <constraint firstItem="lG7-02-oa2" firstAttribute="centerY" secondItem="9w4-Ij-dee" secondAttribute="centerY" id="M93-c9-rck"/>
+                            <constraint firstItem="lG7-02-oa2" firstAttribute="centerX" secondItem="t8B-Ox-VKW" secondAttribute="centerX" id="Q2h-8X-ftz"/>
+                            <constraint firstItem="lG7-02-oa2" firstAttribute="leading" secondItem="9w4-Ij-dee" secondAttribute="leading" id="fS1-Xx-vUR"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="SetTime" destination="yaN-2H-ZgC" id="Nbo-xV-4Ct"/>
+                        <outlet property="hourLabel" destination="JrK-5b-8B3" id="PgH-2z-1bk"/>
+                        <outlet property="hourSwitch" destination="kIc-rd-232" id="KVi-Zk-5fx"/>
                         <outlet property="myHour" destination="lG7-02-oa2" id="WDE-sq-C1f"/>
                         <outlet property="setTime" destination="yaN-2H-ZgC" id="VJN-Dl-odL"/>
                     </connections>
@@ -313,6 +335,6 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="rxA-Ax-jsq"/>
-        <segue reference="okA-Ro-0cF"/>
+        <segue reference="hl0-VT-yfg"/>
     </inferredMetricsTieBreakers>
 </document>

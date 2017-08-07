@@ -12,8 +12,23 @@ class ViewController2: UIViewController,UIPickerViewDelegate,UIPickerViewDataSou
     
     @IBOutlet weak var setTime: UILabel!
     
+    @IBOutlet weak var hourLabel: UILabel!
+    
+    
+    @IBOutlet weak var hourSwitch: UISwitch!
+    @IBAction func hourSwitchAction(_ sender: UISwitch) {
+        let appDelgate:AppDelegate = UIApplication.shared.delegate as! AppDelegate
+        if ( sender.isOn ) {
+            appDelgate.hourChecker = true
+            hourLabel.text = "ON"
+        } else {
+            appDelgate.hourChecker = false
+            hourLabel.text = "OFF"
+        }
+    }
+    
     @IBOutlet weak var myHour: UIPickerView!
-  
+    
     let hourList = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23"]
         
         
@@ -45,7 +60,15 @@ class ViewController2: UIViewController,UIPickerViewDelegate,UIPickerViewDataSou
     
     override func viewDidLoad() {
         super.viewDidLoad()
-             
+        
+        hourLabel.text = "OFF"
+        hourSwitch.isOn = false
+        setTime.text = "0 :00"
+        
+        let strNotificationHour:AppDelegate = UIApplication.shared.delegate as! AppDelegate
+        strNotificationHour.NotificationHour = "0"
+
+        
         myHour.delegate = self
         myHour.dataSource = self
         self.view.addSubview(myHour)
