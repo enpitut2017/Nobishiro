@@ -76,7 +76,16 @@ class ViewController: UIViewController,UIPickerViewDelegate,UIPickerViewDataSour
         super.didReceiveMemoryWarning()
     }
     override func viewDidLoad() {
-        isActiveLabel.text = "on"
+        isActiveLabel.text = "off"
+        isActive.isOn = false
+        myLabel.text = "0 :00"
+        
+        let strHour:AppDelegate = UIApplication.shared.delegate as! AppDelegate
+        let strMinute:AppDelegate = UIApplication.shared.delegate as! AppDelegate
+  
+        strHour.Hour = "0"
+        strMinute.Minute = "00"
+        
         super.viewDidLoad()
         
     }
