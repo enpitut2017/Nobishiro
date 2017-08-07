@@ -61,7 +61,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         
         //トリガーを設定
         
-        let intHour: Int = Int(Hour)!
+    /*    let intHour: Int = Int(Hour)!
         let intMinute: Int = Int(Minute)!
         
         let time = DateComponents(hour:intHour, minute:intMinute)
@@ -81,7 +81,46 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         
         //通知を予約
         let center = UNUserNotificationCenter.current()
-        center.add(request)
+        center.add(request)*/
+        
+        print(Hour)
+        print(Minute)
+        
+        //トリガーを設定
+        
+        let intHour: Int = Int(Hour)!
+        let intMinute: Int = Int(Minute)!
+        let intSecond: Int = 5
+        
+        //表示内容の設定
+        let titleText: String = "寝る時間ですよ"
+        let bodyText: String  = "寝るよな？"
+        let content = UNMutableNotificationContent()
+        content.title = titleText
+        content.body =  bodyText
+        content.sound = UNNotificationSound.default()
+        
+        
+        let center = UNUserNotificationCenter.current()
+        let id: String = "CalenderNotification"
+        
+        
+        
+            
+            // デフォルトの通知。画像などは設定しない
+            var time = DateComponents(hour:intHour, minute:intMinute)
+            var trigger = UNCalendarNotificationTrigger.init(dateMatching: time, repeats: false)
+            
+            var request = UNNotificationRequest.init(identifier: id, content: content, trigger: trigger)
+            center.add(request)
+            
+            // 繰り返しの通知
+            for idx in 1...5 {
+                time = DateComponents(hour:intHour, minute:intMinute, second:intSecond*idx)
+                trigger = UNCalendarNotificationTrigger.init(dateMatching: time, repeats: false)
+                request = UNNotificationRequest.init(identifier: id + String(idx), content: content, trigger: trigger)
+                center.add(request)
+            }
     }
     
     func applicationWillEnterForeground(_ application: UIApplication) {

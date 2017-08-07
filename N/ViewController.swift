@@ -60,7 +60,7 @@ class ViewController: UIViewController,UIPickerViewDelegate,UIPickerViewDataSour
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        timer = Timer.scheduledTimer(timeInterval: 5,
+        timer = Timer.scheduledTimer(timeInterval: 60,
             target: self,                   //
             selector: #selector(ViewController.changeView),
             userInfo: nil,                  //
