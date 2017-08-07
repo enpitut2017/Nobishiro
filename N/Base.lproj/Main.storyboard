@@ -27,8 +27,9 @@
                                 <constraints>
                                     <constraint firstAttribute="width" constant="46" id="C0C-4j-HNH"/>
                                 </constraints>
-                                <state key="normal" title="終了"/>
+                                <state key="normal" title="寝る"/>
                                 <connections>
+                                    <action selector="screendark:" destination="6bZ-44-zg0" eventType="touchUpInside" id="fGE-S0-BPr"/>
                                     <segue destination="3BN-Eq-HEU" kind="presentation" id="R8V-Gy-7Rw"/>
                                 </connections>
                             </button>
@@ -41,6 +42,13 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hKJ-ti-flZ">
+                                <rect key="frame" x="164" y="418.5" width="46" height="30"/>
+                                <state key="normal" title="再設定"/>
+                                <connections>
+                                    <segue destination="BYZ-38-t0r" kind="presentation" id="EpO-QC-He3"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -177,7 +185,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b3g-rp-OF7">
-                                <rect key="frame" x="164" y="352" width="46" height="30"/>
+                                <rect key="frame" x="164" y="352" width="46" height="163"/>
                                 <state key="normal" title="再設定"/>
                                 <connections>
                                     <segue destination="BYZ-38-t0r" kind="presentation" id="fxF-1Q-qHF"/>
@@ -188,8 +196,10 @@
                         <constraints>
                             <constraint firstItem="b3g-rp-OF7" firstAttribute="centerX" secondItem="9yR-ON-t6i" secondAttribute="centerX" id="Npi-im-a1v"/>
                             <constraint firstItem="hwc-wK-01n" firstAttribute="leading" secondItem="9yR-ON-t6i" secondAttribute="leadingMargin" constant="75" id="Oit-wc-xee"/>
+                            <constraint firstItem="b3g-rp-OF7" firstAttribute="centerX" secondItem="9yR-ON-t6i" secondAttribute="centerX" id="Q3J-sj-bnh"/>
                             <constraint firstItem="hwc-wK-01n" firstAttribute="centerY" secondItem="9yR-ON-t6i" secondAttribute="centerY" id="bNp-KM-PpO"/>
                             <constraint firstItem="hwc-wK-01n" firstAttribute="centerX" secondItem="b3g-rp-OF7" secondAttribute="centerX" id="n65-Ac-TGG"/>
+                            <constraint firstItem="b3g-rp-OF7" firstAttribute="centerY" secondItem="9yR-ON-t6i" secondAttribute="centerY" constant="100" id="odi-jy-LcQ"/>
                             <constraint firstItem="b3g-rp-OF7" firstAttribute="top" secondItem="hwc-wK-01n" secondAttribute="bottom" constant="8" symbolic="YES" id="uhD-hW-H7F"/>
                         </constraints>
                     </view>

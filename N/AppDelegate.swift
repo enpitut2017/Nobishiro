@@ -12,7 +12,7 @@ import UserNotifications
 class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
     var window: UIWindow?
     
-    var buttonChecker: Bool = true
+    var buttonChecker: Bool = false
     
     var Hour: String = ""
     var Minute: String = ""
