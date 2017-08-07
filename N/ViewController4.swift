@@ -14,8 +14,23 @@ class ViewController4: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-    }
+        
+        _ = UIScreen.main
+        // set the current value on the slider
+        
+        NotificationCenter.default.addObserver(self,selector: #selector(brightnessChanged(_:)),name: NSNotification.Name.UIScreenBrightnessDidChange,object: nil)
 
+    }
+    
+    func brightnessChanged(_ notification: Notification) {
+        if notification.object != nil {
+        }
+    }
+    
+    @IBAction func screendark(_ sender: UIButton) {
+        UIScreen.main.brightness = CGFloat(0.0)
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

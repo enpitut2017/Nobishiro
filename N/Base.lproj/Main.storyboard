@@ -29,6 +29,7 @@
                                 </constraints>
                                 <state key="normal" title="終了"/>
                                 <connections>
+                                    <action selector="screendark:" destination="6bZ-44-zg0" eventType="touchUpInside" id="fGE-S0-BPr"/>
                                     <segue destination="3BN-Eq-HEU" kind="presentation" id="R8V-Gy-7Rw"/>
                                 </connections>
                             </button>
