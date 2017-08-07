@@ -75,4 +75,10 @@ class ViewController: UIViewController,UIPickerViewDelegate,UIPickerViewDataSour
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
+    override func viewDidLoad() {
+        isActiveLabel.text = "on"
+        super.viewDidLoad()
+        
+    }
+
 }
