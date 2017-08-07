@@ -16,6 +16,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     
     var Hour: String = ""
     var Minute: String = ""
+    
+    var NotificationHour: String = ""
   
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
@@ -60,25 +62,31 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         print(Hour)
         print(Minute)
         
+        print(NotificationHour)
+        
         //トリガーを設定
         
         let intHour: Int = Int(Hour)!
         let intMinute: Int = Int(Minute)!
         let intSecond: Int = 5
         
-        //表示内容の設定
+        let intNotificationHour: Int = Int(NotificationHour)!
+        
+        //寝させる通知内容の設定
         let titleText: String = "寝る時間ですよ"
         let bodyText: String  = "寝るよな？"
         let content = UNMutableNotificationContent()
         content.title = titleText
         content.body =  bodyText
         content.sound = UNNotificationSound.default()
-    
-
+        
         let center = UNUserNotificationCenter.current()
+
+        //寝させる時間
         let id: String = "CalenderNotification"
+
         
-        
+        // 寝させる時間のセット
         if buttonChecker {
             
             // デフォルトの通知。画像などは設定しない
@@ -99,6 +107,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         else {
             center.removeAllPendingNotificationRequests()
         }
+        
+        //時間の設定し忘れを指摘する通知内容の設定
+        let titleTextX: String = "今日は夜更かしするのですか？"
+        let bodyTextX: String  = "寝る時間を決めませんか？"
+        let contentX = UNMutableNotificationContent()
+        contentX.title = titleTextX
+        contentX.body =  bodyTextX
+        contentX.sound = UNNotificationSound.default()
+        
+        let centerX = UNUserNotificationCenter.current()
+        
+        //設定をさせる方
+        let idset: String = "CalenderNotification2"
+        
+        let timeX = DateComponents(hour:intNotificationHour, minute:24)
+        let triggerX = UNCalendarNotificationTrigger.init(dateMatching: timeX, repeats: false)
+        
+        let requestX = UNNotificationRequest.init(identifier: idset, content: contentX, trigger: triggerX)
+        centerX.add(requestX)
+
+
     }
     
     func applicationWillEnterForeground(_ application: UIApplication) {
