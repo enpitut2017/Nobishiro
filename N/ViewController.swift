@@ -11,6 +11,19 @@ import UIKit
 class ViewController: UIViewController,UIPickerViewDelegate,UIPickerViewDataSource {
     
     @IBOutlet weak var myLabel: UILabel!
+    @IBOutlet weak var isActive: UISwitch!
+    @IBOutlet weak var isActiveLabel: UILabel!
+    
+    @IBAction func OnOffChange(_ sender: UISwitch) {
+        let appDelgate:AppDelegate = UIApplication.shared.delegate as! AppDelegate
+        if ( sender.isOn ) {
+            appDelgate.buttonChecker = true
+            isActiveLabel.text = "on"
+        } else {
+            appDelgate.buttonChecker = false
+            isActiveLabel.text = "off"
+        }
+    }
     
     
     let dataList = [["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23"],

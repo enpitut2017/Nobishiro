@@ -83,6 +83,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+<<<<<<< HEAD
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bFq-Sm-MMi">
                                 <rect key="frame" x="164" y="554" width="46" height="30"/>
                                 <constraints>
@@ -117,6 +118,8 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="isActive" destination="LtK-0m-LvA" id="gmj-wd-GCf"/>
+                        <outlet property="isActiveLabel" destination="LuF-Gl-kUh" id="ngb-nQ-CQL"/>
                         <outlet property="myLabel" destination="DQ1-he-oc2" id="NJG-sr-oLA"/>
                     </connections>
                 </viewController>
