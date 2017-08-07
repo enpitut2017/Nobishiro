@@ -92,6 +92,20 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LtK-0m-LvA">
+                                <rect key="frame" x="163" y="187" width="51" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="OnOffChange:" destination="BYZ-38-t0r" eventType="valueChanged" id="ZZB-fy-fVJ"/>
+                                </connections>
+                            </switch>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LuF-Gl-kUh">
+                                <rect key="frame" x="166" y="110" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -107,6 +121,8 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="isActive" destination="LtK-0m-LvA" id="gmj-wd-GCf"/>
+                        <outlet property="isActiveLabel" destination="LuF-Gl-kUh" id="ngb-nQ-CQL"/>
                         <outlet property="myLabel" destination="DQ1-he-oc2" id="NJG-sr-oLA"/>
                         <segue destination="6bZ-44-zg0" kind="presentation" identifier="toSleep" id="GxL-9b-6Fx"/>
                     </connections>
