@@ -69,24 +69,6 @@ class ViewController: UIViewController,UIPickerViewDelegate,UIPickerViewDataSour
 
     }
     
-    var timer:Timer = Timer()
-    
-    override func viewDidLoad() {
-        isActiveLabel.text = "on"
-        super.viewDidLoad()
-        timer = Timer.scheduledTimer(timeInterval: 60,
-            target: self,                   //
-            selector: #selector(ViewController.changeView),
-            userInfo: nil,                  //
-            repeats: false)                 //追加
-        // Do any additional setup after loading the view, typically from a nib.
-    }
-    
-    func changeView() {
-        self.performSegue(withIdentifier: "toSleep",sender: nil)
-    }
-    
-    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }

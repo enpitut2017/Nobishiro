@@ -73,8 +73,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         content.title = titleText
         content.body =  bodyText
         content.sound = UNNotificationSound.default()
-        
-        
+    
+
         let center = UNUserNotificationCenter.current()
         let id: String = "CalenderNotification"
         
@@ -112,6 +112,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
-    
-    
 }
+    
+    
+
