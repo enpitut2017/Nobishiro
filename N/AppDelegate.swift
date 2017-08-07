@@ -13,6 +13,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     var window: UIWindow?
     
     var buttonChecker: Bool = false
+    var hourChecker: Bool = false
     
     var Hour: String = ""
     var Minute: String = ""
@@ -119,13 +120,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         let centerX = UNUserNotificationCenter.current()
         
         //設定をさせる方
-        let idset: String = "CalenderNotification2"
+        let idX: String = "CalenderNotificationX"
         
-        let timeX = DateComponents(hour:intNotificationHour, minute:24)
+        
+        if hourChecker {
+        let timeX = DateComponents(hour:intNotificationHour, minute:10)
         let triggerX = UNCalendarNotificationTrigger.init(dateMatching: timeX, repeats: false)
         
-        let requestX = UNNotificationRequest.init(identifier: idset, content: contentX, trigger: triggerX)
+        let requestX = UNNotificationRequest.init(identifier: idX, content: contentX, trigger: triggerX)
         centerX.add(requestX)
+        } else {
+            centerX.removeAllPendingNotificationRequests()
+        }
 
 
     }
