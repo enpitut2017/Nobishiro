@@ -10,7 +10,7 @@ import UIKit
 
 class ViewController: UIViewController,UIPickerViewDelegate,UIPickerViewDataSource {
     
-    @IBOutlet weak var myLabel: UILabel!
+    @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var isActive: UISwitch!
     @IBOutlet weak var isActiveLabel: UILabel!
     
@@ -19,10 +19,10 @@ class ViewController: UIViewController,UIPickerViewDelegate,UIPickerViewDataSour
         let appDelgate:AppDelegate = UIApplication.shared.delegate as! AppDelegate
         if ( sender.isOn ) {
             appDelgate.buttonChecker = true
-            isActiveLabel.text = "ON"
+            isActiveLabel.text = "設定しました"
         } else {
             appDelgate.buttonChecker = false
-            isActiveLabel.text = "OFF"
+            isActiveLabel.text = "設定します"
         }
     }
     
@@ -60,12 +60,11 @@ class ViewController: UIViewController,UIPickerViewDelegate,UIPickerViewDataSour
         
         let data1 = self.pickerView(pickerView, titleForRow: pickerView.selectedRow(inComponent: 0), forComponent: 0)
         let data2 = self.pickerView(pickerView, titleForRow: pickerView.selectedRow(inComponent: 1), forComponent: 1)
-        //let data3 = self.pickerView(pickerView, titleForRow: pickerView.selectedRow(inComponent: 2), //forComponent: 2)
         
         strHour.Hour = data1!
         strMinute.Minute = data2!
         
-        self.myLabel.text = "\(data1!) :\(data2!)"
+        self.timeLabel.text = "今日は\(data1!) :\(data2!)には寝ます"
 
     }
     
@@ -73,15 +72,18 @@ class ViewController: UIViewController,UIPickerViewDelegate,UIPickerViewDataSour
         super.didReceiveMemoryWarning()
     }
     override func viewDidLoad() {
-        isActiveLabel.text = "OFF"
+        isActiveLabel.text = "設定します"
         isActive.isOn = false
-        myLabel.text = "0 :00"
+        timeLabel.text = "今日は0 :00には寝ます"
         
         let strHour:AppDelegate = UIApplication.shared.delegate as! AppDelegate
         let strMinute:AppDelegate = UIApplication.shared.delegate as! AppDelegate
   
         strHour.Hour = "0"
         strMinute.Minute = "00"
+        
+        let strNotificationHour:AppDelegate = UIApplication.shared.delegate as! AppDelegate
+        strNotificationHour.NotificationHour = "0"
         
         super.viewDidLoad()
         
