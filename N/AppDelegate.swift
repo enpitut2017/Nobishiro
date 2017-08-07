@@ -64,24 +64,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         let intHour: Int = Int(Hour)!
         let intMinute: Int = Int(Minute)!
         
-        let time = DateComponents(hour:intHour, minute:intMinute)
-        let trigger = UNCalendarNotificationTrigger.init(dateMatching: time, repeats: false)
         
-        
-        
-         //表示の設定
+        //表示の設定
         let content = UNMutableNotificationContent()
         content.title = "寝る時間ですよ"
         content.body = "寝るよな？"
         content.sound = UNNotificationSound.default()
+
+    
+        let time = DateComponents(hour:intHour, minute:intMinute)
+     
+        let trigger = UNCalendarNotificationTrigger.init(dateMatching: time, repeats: false)
         
         // デフォルトの通知。画像などは設定しない
         let request = UNNotificationRequest.init(identifier: "CalendarNotification", content: content, trigger: trigger)
         
         
         //通知を予約
+            
         let center = UNUserNotificationCenter.current()
         center.add(request)
+           
+    }
+    
     }
     
     func applicationWillEnterForeground(_ application: UIApplication) {
@@ -97,4 +102,4 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     }
     
     
-}
+
