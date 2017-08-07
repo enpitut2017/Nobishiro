@@ -19,10 +19,10 @@ class ViewController: UIViewController,UIPickerViewDelegate,UIPickerViewDataSour
         let appDelgate:AppDelegate = UIApplication.shared.delegate as! AppDelegate
         if ( sender.isOn ) {
             appDelgate.buttonChecker = true
-            isActiveLabel.text = "on"
+            isActiveLabel.text = "ON"
         } else {
             appDelgate.buttonChecker = false
-            isActiveLabel.text = "off"
+            isActiveLabel.text = "OFF"
         }
     }
     
@@ -73,7 +73,7 @@ class ViewController: UIViewController,UIPickerViewDelegate,UIPickerViewDataSour
         super.didReceiveMemoryWarning()
     }
     override func viewDidLoad() {
-        isActiveLabel.text = "off"
+        isActiveLabel.text = "OFF"
         isActive.isOn = false
         myLabel.text = "0 :00"
         
