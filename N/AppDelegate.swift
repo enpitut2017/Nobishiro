@@ -12,6 +12,7 @@ import UserNotifications
 class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
     var window: UIWindow?
     
+    var buttonChecker: Bool = true
     
     var Hour: String = ""
     var Minute: String = ""
@@ -61,33 +62,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         
         //トリガーを設定
         
-    /*    let intHour: Int = Int(Hour)!
-        let intMinute: Int = Int(Minute)!
-        
-        let time = DateComponents(hour:intHour, minute:intMinute)
-        let trigger = UNCalendarNotificationTrigger.init(dateMatching: time, repeats: false)
-        
-        
-        
-         //表示の設定
-        let content = UNMutableNotificationContent()
-        content.title = "寝る時間ですよ"
-        content.body = "寝るよな？"
-        content.sound = UNNotificationSound.default()
-        
-        // デフォルトの通知。画像などは設定しない
-        let request = UNNotificationRequest.init(identifier: "CalendarNotification", content: content, trigger: trigger)
-        
-        
-        //通知を予約
-        let center = UNUserNotificationCenter.current()
-        center.add(request)*/
-        
-        print(Hour)
-        print(Minute)
-        
-        //トリガーを設定
-        
         let intHour: Int = Int(Hour)!
         let intMinute: Int = Int(Minute)!
         let intSecond: Int = 5
@@ -105,7 +79,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         let id: String = "CalenderNotification"
         
         
-        
+        if buttonChecker {
             
             // デフォルトの通知。画像などは設定しない
             var time = DateComponents(hour:intHour, minute:intMinute)
@@ -121,6 +95,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                 request = UNNotificationRequest.init(identifier: id + String(idx), content: content, trigger: trigger)
                 center.add(request)
             }
+        }
+        else {
+            center.removeAllPendingNotificationRequests()
+        }
     }
     
     func applicationWillEnterForeground(_ application: UIApplication) {
