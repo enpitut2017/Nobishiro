@@ -123,7 +123,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         let idX: String = "CalenderNotificationX"
         
         if hourChecker {
-            let timeX = DateComponents(hour:intNotificationHour, minute:0)
+            let timeX = DateComponents(hour:intNotificationHour, minute:31)
             let triggerX = UNCalendarNotificationTrigger.init(dateMatching: timeX, repeats: true)
         
             let requestX = UNNotificationRequest.init(identifier: idX, content: contentX, trigger: triggerX)

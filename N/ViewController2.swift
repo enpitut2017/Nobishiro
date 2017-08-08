@@ -17,18 +17,22 @@ class ViewController2: UIViewController,UIPickerViewDelegate,UIPickerViewDataSou
     
     
     @IBOutlet weak var hourSwitch: UISwitch!
+    
+    @IBOutlet weak var myHour: UIPickerView!
+    
     @IBAction func hourSwitchAction(_ sender: UISwitch) {
         let appDelgate:AppDelegate = UIApplication.shared.delegate as! AppDelegate
         if ( sender.isOn ) {
             appDelgate.hourChecker = true
             hourLabel.text = "設定しました"
+            setTime.text = "毎日 \(appDelgate.NotificationHour): 00 にリマインドします"
         } else {
             appDelgate.hourChecker = false
             hourLabel.text = "設定します"
+            setTime.text = "設定されていません"
         }
     }
-    
-    @IBOutlet weak var myHour: UIPickerView!
+
     
     let hourList = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23"]
         
@@ -55,18 +59,26 @@ class ViewController2: UIViewController,UIPickerViewDelegate,UIPickerViewDataSou
         let data = self.pickerView(pickerView, titleForRow: pickerView.selectedRow(inComponent: 0), forComponent: 0)
         strNotificationHour.NotificationHour = data!
         
-        self.setTime.text = "毎日 \(data!) :00 にリマインドします"
-        
+        if(strNotificationHour.hourChecker == false) {
+        self.setTime.text = "設定されていません"
+        } else {
+            self.setTime.text = "毎日 \(data!): 00 にリマインドします"
+        }
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
     }
     
     override func viewDidLoad() {
-        super.viewDidLoad()
+       
         setsumeiText.numberOfLines = 2;
         setsumeiText.text = "寝る時間を設定し忘れていることを\nリマインドする機能です"
-        
+      
         hourLabel.text = "設定します"
         hourSwitch.isOn = false
-        setTime.text = "毎日 0 :00 にリマインドします"
+        setTime.text = "設定されていません"
         
         let strNotificationHour:AppDelegate = UIApplication.shared.delegate as! AppDelegate
         strNotificationHour.NotificationHour = "0"
@@ -75,14 +87,15 @@ class ViewController2: UIViewController,UIPickerViewDelegate,UIPickerViewDataSou
         myHour.delegate = self
         myHour.dataSource = self
         self.view.addSubview(myHour)
+        
+        let strHour:AppDelegate = UIApplication.shared.delegate as! AppDelegate
+        let strMinute:AppDelegate = UIApplication.shared.delegate as! AppDelegate
+        strHour.Hour = "0"
+        strMinute.Minute = "00"
+
+         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
 
     /*
     // MARK: - Navigation
