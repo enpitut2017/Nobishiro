@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="3BN-Eq-HEU">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="3BN-Eq-HEU">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -278,11 +278,11 @@
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kIc-rd-232">
                                 <rect key="frame" x="207" y="474" width="51" height="31"/>
                                 <connections>
-                                    <action selector="hourSwitchAction:" destination="Foz-KV-wf1" eventType="valueChanged" id="u2P-CS-3pO"/>
+                                    <action selector="hourSwitchAction:" destination="Foz-KV-wf1" eventType="valueChanged" id="Zya-7d-HlO"/>
                                 </connections>
                             </switch>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cYe-Dc-rEH">
-                                <rect key="frame" x="69" y="196" width="241" height="21"/>
+                                <rect key="frame" x="24" y="196" width="331" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -307,8 +307,8 @@
                             <constraint firstItem="lG7-02-oa2" firstAttribute="top" secondItem="cYe-Dc-rEH" secondAttribute="bottom" constant="8" symbolic="YES" id="OpC-2T-AgO"/>
                             <constraint firstItem="JrK-5b-8B3" firstAttribute="leading" secondItem="9w4-Ij-dee" secondAttribute="leading" constant="123" id="R3y-aq-Wav"/>
                             <constraint firstItem="lG7-02-oa2" firstAttribute="leading" secondItem="9w4-Ij-dee" secondAttribute="leadingMargin" constant="6" id="a9U-yC-hp5"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="cYe-Dc-rEH" secondAttribute="trailing" constant="49" id="cJo-Mz-NKc"/>
-                            <constraint firstItem="cYe-Dc-rEH" firstAttribute="leading" secondItem="9w4-Ij-dee" secondAttribute="leadingMargin" constant="53" id="uJE-CR-BAb"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="cYe-Dc-rEH" secondAttribute="trailing" constant="4" id="cJo-Mz-NKc"/>
+                            <constraint firstItem="cYe-Dc-rEH" firstAttribute="leading" secondItem="9w4-Ij-dee" secondAttribute="leadingMargin" constant="8" id="uJE-CR-BAb"/>
                             <constraint firstItem="7KQ-t2-axR" firstAttribute="top" secondItem="t8B-Ox-VKW" secondAttribute="bottom" constant="96" id="uic-oD-llI"/>
                         </constraints>
                     </view>
@@ -326,7 +326,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="usi-bQ-jx5"/>
         <segue reference="hl0-VT-yfg"/>
+        <segue reference="usi-bQ-jx5"/>
     </inferredMetricsTieBreakers>
 </document>
