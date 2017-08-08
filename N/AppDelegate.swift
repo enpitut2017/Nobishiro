@@ -74,8 +74,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         let intNotificationHour: Int = Int(NotificationHour)!
         
         //寝させる通知内容の設定
-        let titleText: String = "寝る時間ですよ"
-        let bodyText: String  = "寝るよな？"
+        let titleText: String = "寝る時間です"
+        let bodyText: String  = "寝てください"
         let content = UNMutableNotificationContent()
         content.title = titleText
         content.body =  bodyText
@@ -85,6 +85,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
 
         //寝させる時間
         let id: String = "CalenderNotification"
+        let zeroStr: String = "0"
 
         
         // 寝させる時間のセット
@@ -94,7 +95,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
             var time = DateComponents(hour:intHour, minute:intMinute)
             var trigger = UNCalendarNotificationTrigger.init(dateMatching: time, repeats: false)
             
-            var request = UNNotificationRequest.init(identifier: id, content: content, trigger: trigger)
+            var request = UNNotificationRequest.init(identifier: id+zeroStr, content: content, trigger: trigger)
             center.add(request)
             
             // 繰り返しの通知
@@ -106,7 +107,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
             }
         }
         else {
-            center.removeAllPendingNotificationRequests()
+            for idx in 0...10 {
+                center.removePendingNotificationRequests(withIdentifiers: [id+String(idx)])
+            }
         }
         
         //時間の設定し忘れを指摘する通知内容の設定
@@ -129,7 +132,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
             let requestX = UNNotificationRequest.init(identifier: idX, content: contentX, trigger: triggerX)
             centerX.add(requestX)
         } else {
-            centerX.removeAllPendingNotificationRequests()
+            centerX.removePendingNotificationRequests(withIdentifiers: [idX])
         }
 
 
