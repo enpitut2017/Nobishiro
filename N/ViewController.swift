@@ -20,9 +20,11 @@ class ViewController: UIViewController,UIPickerViewDelegate,UIPickerViewDataSour
         if ( sender.isOn ) {
             appDelgate.buttonChecker = true
             isActiveLabel.text = "設定しました"
+            timeLabel.text = "今日は \(appDelgate.Hour) : \(appDelgate.Minute) には寝ます"
         } else {
             appDelgate.buttonChecker = false
             isActiveLabel.text = "設定します"
+            timeLabel.text = "設定されていません"
         }
     }
     
@@ -59,22 +61,26 @@ class ViewController: UIViewController,UIPickerViewDelegate,UIPickerViewDataSour
         
         
         let data1 = self.pickerView(pickerView, titleForRow: pickerView.selectedRow(inComponent: 0), forComponent: 0)
-        let data2 = self.pickerView(pickerView, titleForRow: pickerView.selectedRow(inComponent: 1), forComponent: 1)
-        
+        let data2 = self.pickerView(pickerView, titleForRow: pickerView.selectedRow(inComponent: 1), forComponent: 1)        
         strHour.Hour = data1!
         strMinute.Minute = data2!
         
-        self.timeLabel.text = "今日は\(data1!) :\(data2!)には寝ます"
+        if(strHour.buttonChecker == true && strMinute.buttonChecker == true) {
+            self.timeLabel.text = "今日は \(data1!) : \(data2!) には寝ます"
+        } else {
+            self.timeLabel.text = "設定されていません"
+        }
 
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
+    
     override func viewDidLoad() {
         isActiveLabel.text = "設定します"
         isActive.isOn = false
-        timeLabel.text = "今日は0 :00には寝ます"
+        timeLabel.text = "設定されていません"
         
         let strHour:AppDelegate = UIApplication.shared.delegate as! AppDelegate
         let strMinute:AppDelegate = UIApplication.shared.delegate as! AppDelegate
@@ -84,7 +90,7 @@ class ViewController: UIViewController,UIPickerViewDelegate,UIPickerViewDataSour
         
         let strNotificationHour:AppDelegate = UIApplication.shared.delegate as! AppDelegate
         strNotificationHour.NotificationHour = "0"
-        
+ 
         super.viewDidLoad()
         
     }
