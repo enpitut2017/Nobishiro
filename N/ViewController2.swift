@@ -14,6 +14,7 @@ class ViewController2: UIViewController,UIPickerViewDelegate,UIPickerViewDataSou
     @IBOutlet weak var setTime: UILabel!
     @IBOutlet weak var setsumeiText: UILabel!
     @IBOutlet weak var hourLabel: UILabel!
+    @IBOutlet weak var settingText: UILabel!
     
     
     @IBOutlet weak var hourSwitch: UISwitch!
@@ -22,14 +23,15 @@ class ViewController2: UIViewController,UIPickerViewDelegate,UIPickerViewDataSou
     
     @IBAction func hourSwitchAction(_ sender: UISwitch) {
         let appDelgate:AppDelegate = UIApplication.shared.delegate as! AppDelegate
+         setTime.text = "毎日 \(appDelgate.NotificationHour): 00 にリマインドします"
         if ( sender.isOn ) {
             appDelgate.hourChecker = true
             hourLabel.text = "設定しました"
-            setTime.text = "毎日 \(appDelgate.NotificationHour): 00 にリマインドします"
+            settingText.text = " "
         } else {
             appDelgate.hourChecker = false
             hourLabel.text = "設定します"
-            setTime.text = "設定されていません"
+            settingText.text = "設定されていません"
         }
     }
 
@@ -59,10 +61,11 @@ class ViewController2: UIViewController,UIPickerViewDelegate,UIPickerViewDataSou
         let data = self.pickerView(pickerView, titleForRow: pickerView.selectedRow(inComponent: 0), forComponent: 0)
         strNotificationHour.NotificationHour = data!
         
+        self.setTime.text = "毎日 \(data!) : 00 にリマインドします"
         if(strNotificationHour.hourChecker == false) {
-        self.setTime.text = "設定されていません"
+            self.settingText.text = "設定されていません"
         } else {
-            self.setTime.text = "毎日 \(data!): 00 にリマインドします"
+            self.settingText.text = " "
         }
     }
     
@@ -78,7 +81,8 @@ class ViewController2: UIViewController,UIPickerViewDelegate,UIPickerViewDataSou
       
         hourLabel.text = "設定します"
         hourSwitch.isOn = false
-        setTime.text = "設定されていません"
+        setTime.text = "毎日 0 : 00 にリマインドします"
+        settingText.text = "設定されていません"
         
         let strNotificationHour:AppDelegate = UIApplication.shared.delegate as! AppDelegate
         strNotificationHour.NotificationHour = "0"

@@ -13,18 +13,20 @@ class ViewController: UIViewController,UIPickerViewDelegate,UIPickerViewDataSour
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var isActive: UISwitch!
     @IBOutlet weak var isActiveLabel: UILabel!
+    @IBOutlet weak var setText: UILabel!
     
     
     @IBAction func OnOffChange(_ sender: UISwitch) {
         let appDelgate:AppDelegate = UIApplication.shared.delegate as! AppDelegate
+        timeLabel.text = "今日は \(appDelgate.Hour) : \(appDelgate.Minute) には寝ます"
         if ( sender.isOn ) {
             appDelgate.buttonChecker = true
             isActiveLabel.text = "設定しました"
-            timeLabel.text = "今日は \(appDelgate.Hour) : \(appDelgate.Minute) には寝ます"
+            setText.text = " "
         } else {
             appDelgate.buttonChecker = false
             isActiveLabel.text = "設定します"
-            timeLabel.text = "設定されていません"
+            setText.text = "設定されていません"
         }
     }
     
@@ -65,10 +67,11 @@ class ViewController: UIViewController,UIPickerViewDelegate,UIPickerViewDataSour
         strHour.Hour = data1!
         strMinute.Minute = data2!
         
+        self.timeLabel.text = "今日は \(data1!) : \(data2!) には寝ます"
         if(strHour.buttonChecker == true && strMinute.buttonChecker == true) {
-            self.timeLabel.text = "今日は \(data1!) : \(data2!) には寝ます"
+            self.setText.text = " "
         } else {
-            self.timeLabel.text = "設定されていません"
+            self.setText.text = "設定されていません"
         }
 
     }
@@ -80,7 +83,8 @@ class ViewController: UIViewController,UIPickerViewDelegate,UIPickerViewDataSour
     override func viewDidLoad() {
         isActiveLabel.text = "設定します"
         isActive.isOn = false
-        timeLabel.text = "設定されていません"
+        timeLabel.text = "今日は 0 : 00 には寝ます"
+        setText.text = "設定されていません"
         
         let strHour:AppDelegate = UIApplication.shared.delegate as! AppDelegate
         let strMinute:AppDelegate = UIApplication.shared.delegate as! AppDelegate
