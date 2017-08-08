@@ -12,9 +12,14 @@ import UserNotifications
 class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
     var window: UIWindow?
     
+    var buttonChecker: Bool = false
+    var hourChecker: Bool = false
     
     var Hour: String = ""
     var Minute: String = ""
+    
+    var NotificationHour: String = ""
+  
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
@@ -58,28 +63,76 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         print(Hour)
         print(Minute)
         
+        print(NotificationHour)
+        
         //トリガーを設定
         
         let intHour: Int = Int(Hour)!
         let intMinute: Int = Int(Minute)!
+        let intSecond: Int = 3
         
-        let date = DateComponents(hour:intHour, minute:intMinute)
-        let trigger = UNCalendarNotificationTrigger.init(dateMatching: date, repeats: false)
+        let intNotificationHour: Int = Int(NotificationHour)!
         
-        
-         //表示の設定
+        //寝させる通知内容の設定
+        let titleText: String = "寝る時間ですよ"
+        let bodyText: String  = "寝るよな？"
         let content = UNMutableNotificationContent()
-        content.title = "寝る時間ですよ"
-        content.body = "寝るよな？"
+        content.title = titleText
+        content.body =  bodyText
         content.sound = UNNotificationSound.default()
         
-        // デフォルトの通知。画像などは設定しない
-        let request = UNNotificationRequest.init(identifier: "CalendarNotification", content: content, trigger: trigger)
-        
-        
-        //通知を予約
         let center = UNUserNotificationCenter.current()
-        center.add(request)
+
+        //寝させる時間
+        let id: String = "CalenderNotification"
+
+        
+        // 寝させる時間のセット
+        if buttonChecker {
+            
+            // デフォルトの通知。画像などは設定しない
+            var time = DateComponents(hour:intHour, minute:intMinute)
+            var trigger = UNCalendarNotificationTrigger.init(dateMatching: time, repeats: false)
+            
+            var request = UNNotificationRequest.init(identifier: id, content: content, trigger: trigger)
+            center.add(request)
+            
+            // 繰り返しの通知
+            for idx in 1...10 {
+                time = DateComponents(hour:intHour, minute:intMinute, second:intSecond*idx)
+                trigger = UNCalendarNotificationTrigger.init(dateMatching: time, repeats: false)
+                request = UNNotificationRequest.init(identifier: id + String(idx), content: content, trigger: trigger)
+                center.add(request)
+            }
+        }
+        else {
+            center.removeAllPendingNotificationRequests()
+        }
+        
+        //時間の設定し忘れを指摘する通知内容の設定
+        let titleTextX: String = "今日は夜更かしするのですか？"
+        let bodyTextX: String  = "寝る時間を決めませんか？"
+        let contentX = UNMutableNotificationContent()
+        contentX.title = titleTextX
+        contentX.body =  bodyTextX
+        contentX.sound = UNNotificationSound.default()
+        
+        let centerX = UNUserNotificationCenter.current()
+        
+        //設定をさせる方
+        let idX: String = "CalenderNotificationX"
+        
+        if hourChecker {
+            let timeX = DateComponents(hour:intNotificationHour, minute:31)
+            let triggerX = UNCalendarNotificationTrigger.init(dateMatching: timeX, repeats: true)
+        
+            let requestX = UNNotificationRequest.init(identifier: idX, content: contentX, trigger: triggerX)
+            centerX.add(requestX)
+        } else {
+            centerX.removeAllPendingNotificationRequests()
+        }
+
+
     }
     
     func applicationWillEnterForeground(_ application: UIApplication) {
@@ -93,6 +146,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
-    
-    
 }
+    
+    
+
