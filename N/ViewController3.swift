@@ -46,27 +46,30 @@ class ViewController3: UIViewController {
     }
     
     func timeDiff(hour: Int, minute: Int, second:Int)-> Int {
-        if Int(strHour.Hour)! - hour < 0 {
-            diffHour = -1*(Int(strHour.Hour)!-hour)+24
-            print(diffHour)
-            print("a")
+        let Hour: Int = Int(strHour.Hour)!
+        let Minute: Int = Int(strMinute.Minute)!
+        
+        var ans: Int = 0
+        if (hour == Hour) {
+            ans = (Minute-minute-1)*60+60-second
+        }
+        else if(Hour>hour) {
+            if (Minute >= minute) {
+                ans = (Hour-hour)*3600+(Minute-minute-1)*60+60-second
+            }
+            else {
+                ans = (Hour-hour-1)*3600+(Minute-minute+60-1)*60+60-second
+            }
         }
         else {
-            diffHour = Int(strHour.Hour)!-hour
-            print(diffHour)
-            print("b")
+            if (Minute>=minute) {
+                ans = (Hour-hour+24)*3600+(Minute-minute-1)*60+60-second
+            }
+            else {
+                ans = (Hour-hour+23)*3600+(Minute-minute+60-1)*60+60-second
+            }
         }
-        if Int(strMinute.Minute)! - minute < 0 {
-            diffMinute = -1*(Int(strMinute.Minute)!-minute)+59
-            print(diffMinute)
-            print("c")
-        }
-        else {
-            diffMinute = Int(strMinute.Minute)!-minute-1
-            print(diffMinute)
-            print("d")
-        }
-        return 3600*diffHour+60*diffMinute+60-second
+        return ans
     }
     
     
